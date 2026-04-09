@@ -1,0 +1,5 @@
+J001|Ahmed Hossam|AI|ahossam|hashedpwd123|
+J002|Laila Samir|Cybersecurity|lsamir|hashedpwd456|
+J003|Mohamed Ali|Robotics|mali|hashedpwd789|
+J004|Sara Youssef|Software Engineering|syoussef|hashedpwd101|
+J005|Omar Khaled|Data Science|okhaled|hashedpwd202|
