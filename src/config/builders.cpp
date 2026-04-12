@@ -1,5 +1,6 @@
 #include "builders.hpp"
 #include "config.hpp"
+#include "../utils/otherUtils.hpp"
 #include <string>
 using std::string;
 
@@ -19,11 +20,6 @@ string generateAdminId(){
     static int admin_id_counter = 1;
     return "admin_" + std::to_string(admin_id_counter++);
 }
-string hashPassword(const string& password){
-    
-    return "hashed_" + password;
-}
-
 Team createTeam(const string& team_name, const string& university_name, unsigned short number_of_members, const string& project_title)
 {
     Team team;

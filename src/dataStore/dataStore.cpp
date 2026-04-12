@@ -22,6 +22,7 @@ static unsigned int number_of_admins = 0;
 
 static CurrentUser current_user = {nullptr, RoleType::ANONYMOUS};
 
+
 /******************************************************************** */
 void loadData()
 {
@@ -97,13 +98,14 @@ unsigned int getNumberOfAdmins()
 /****************************************************************************/
 const Team& getTeamAt(unsigned int index)
 {
+    static const Team emptyTeam{};
     if (inRange(index,0,number_of_teams))
     {
         return teams[index];
     }
     else if (inRange(index,0,Size::kMIN_SIZE_OF_TEAMS))
     {
-        return {};
+        return emptyTeam;
     }
     throw std::runtime_error("Index out of range");
     // return {};
@@ -111,13 +113,14 @@ const Team& getTeamAt(unsigned int index)
 
 const Judge& getJudgeAt(unsigned int index)
 {
+    static const Judge emptyJudge{};
     if (inRange(index,0,number_of_judges))
     {
         return judges[index];
     }
     else if (inRange(index,0,Size::kMIN_SIZE_OF_JUDGES))
     {
-        return {};
+        return emptyJudge;
     }
     throw std::runtime_error("Index out of range");
     // return {};
@@ -125,13 +128,14 @@ const Judge& getJudgeAt(unsigned int index)
 
 const Evaluation& getEvalAt(unsigned int index)
 {
+    static const Evaluation emptyEvaluation{};
     if (inRange(index,0,number_of_evaluations))
     {
         return evaluations[index];
     }
     else if (inRange(index,0,Size::kMIN_SIZE_OF_EVALUATIONS))
     {
-        return {};
+        return emptyEvaluation;
     }
     throw std::runtime_error("Index out of range");
     // return {};
@@ -139,13 +143,14 @@ const Evaluation& getEvalAt(unsigned int index)
 
 const Admin& getAdminAt(unsigned int index)
 {
+    static const Admin emptyAdmin{};
     if (inRange(index,0,number_of_admins))
     {
         return admins[index];
     }
     else if (inRange(index,0,Size::kMIN_SIZE_OF_ADMINS))
     {
-        return {};
+        return emptyAdmin;
     }
     throw std::runtime_error("Index out of range");
     // return {};

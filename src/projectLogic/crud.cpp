@@ -44,6 +44,7 @@ Response modifyTeamById(const string& id ,const string& team_name, const string&
     switch (check_response.status_)
     {
     case Status::STATUS_200_OK :
+    {
         short int team_idx = getTeamIdxById(id);
         modified_team = updateTeam(current_team,team_name,university_name,number_of_members,project_title);
         setTeamAt(modified_team,team_idx);
@@ -52,7 +53,7 @@ Response modifyTeamById(const string& id ,const string& team_name, const string&
         response.content_type_ = ProgramTypes::TEAM;
         response.status_ = Status::STATUS_200_OK;
         break;
-    
+    }
     default:
         break;
     }
@@ -70,6 +71,7 @@ Response submitProjectByTeamId(const string& id , const string& project_title)
     switch (check_response.status_)
     {
     case Status::STATUS_200_OK :
+    {
         short int team_idx = getTeamIdxById(id);
         modified_team = updateTeam(current_team,current_team.team_name_,current_team.university_name_,current_team.number_of_members_,project_title);
         setTeamAt(modified_team,team_idx);
@@ -77,6 +79,7 @@ Response submitProjectByTeamId(const string& id , const string& project_title)
         response.content_ptr_ = &getTeamAt(team_idx);
         response.content_type_ = ProgramTypes::TEAM;
         response.status_ = Status::STATUS_200_OK;
+    }
         break;
     
     default:

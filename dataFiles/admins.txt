@@ -1,3 +1,2 @@
-A001|admin1|hashedadmin123|
-A002|admin2|hashedadmin456|
-A003|admin3|hashedadmin789|
+A001|admin1|hashed_admin123|
+A002|admin2|hashed_admin456|
