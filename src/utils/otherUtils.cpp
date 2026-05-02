@@ -1,5 +1,5 @@
 #include "otherUtils.hpp"
-#include <bcrypt.h>
+#include <bcrypt/bcrypt.h>
 #include <stdexcept>
 #include <string>
 #include <random>

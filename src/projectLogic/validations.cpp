@@ -2,7 +2,7 @@
 #include "../dataStore/dataStore.hpp"
 #include "../config/config.hpp"
 #include "../utils/otherUtils.hpp"
-#include <bcrypt.h>
+#include <bcrypt/bcrypt.h>
 #include <string>
 using std::string;
 

@@ -5,8 +5,13 @@ TEMPLATE = app
 TARGET   = spProject-unstableRelease
 
 INCLUDEPATH += /usr/local/include
+INCLUDEPATH += C:/Users/Lenovo/Downloads/libbcrypt-master/libbcrypt-master/include
 
 SOURCES += \
+    libbcrypt-master/src/bcrypt.c \
+    libbcrypt-master/src/crypt_blowfish.c \
+    libbcrypt-master/src/crypt_gensalt.c \
+    libbcrypt-master/src/wrapper.c \
     src/config/builders.cpp \
     src/dataStore/dataStore.cpp \
     src/database/dbApi.cpp \
@@ -66,4 +71,3 @@ FORMS += \
     src/userInterface/gui/MainWindow.ui \
     src/userInterface/gui/RegisterTeamWidget.ui
 
-LIBS += /usr/local/lib/bcrypt.a

@@ -30,11 +30,11 @@ namespace Precision
 /*absolute paths for codebase resources*/
 namespace Paths
 {
-    const std::string kDATA_FOLDER_PATH = "/home/ezat/Desktop/workspace/spProject/dataFiles/";
-    const std::string kTEAMS_FILE = kDATA_FOLDER_PATH + "teams.txt";
-    const std::string kEVALUATION_FILE = kDATA_FOLDER_PATH + "evaluations.txt";
-    const std::string kJUDGES_FILE = kDATA_FOLDER_PATH + "judges.txt";
-    const std::string kADMINS_FILE = kDATA_FOLDER_PATH + "admins.txt";
+    const std::string kDATA_FOLDER_PATH = "C:/Users/Lenovo/OneDrive/Documents/Qt proj/spProject/dataFiles";
+    const std::string kTEAMS_FILE = kDATA_FOLDER_PATH + "/teams.txt";
+    const std::string kEVALUATION_FILE = kDATA_FOLDER_PATH + "/evaluations.txt";
+    const std::string kJUDGES_FILE = kDATA_FOLDER_PATH + "/judges.txt";
+    const std::string kADMINS_FILE = kDATA_FOLDER_PATH + "/admins.txt";
 }
 
 namespace EntityType
