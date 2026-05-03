@@ -17,6 +17,7 @@ class JudgesWidget;
 class EvaluationsWidget;
 class RegisterTeamWidget;
 class AddEvaluationWidget;
+class ModifyTeamWidget;
 class LoginDialog;
 
 class MainWindow : public QMainWindow
@@ -71,6 +72,7 @@ private:
     EvaluationsWidget *m_evaluations;
     RegisterTeamWidget   *m_registerTeam;
     AddEvaluationWidget  *m_addEval;
+    ModifyTeamWidget     *m_modifyTeam;
 
     // Toast
     QLabel  *m_toast;

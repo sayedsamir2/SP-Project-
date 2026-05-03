@@ -18,6 +18,7 @@ debug/EvaluationsWidget.o
 debug/JudgesWidget.o
 debug/LoginDialog.o
 debug/MainWindow.o
+debug/ModifyTeamWidget.o
 debug/RegisterTeamWidget.o
 debug/TeamsWidget.o
 debug/main.o
@@ -33,5 +34,6 @@ debug/moc_EvaluationsWidget.o
 debug/moc_JudgesWidget.o
 debug/moc_LoginDialog.o
 debug/moc_MainWindow.o
+debug/moc_ModifyTeamWidget.o
 debug/moc_RegisterTeamWidget.o
 debug/moc_TeamsWidget.o

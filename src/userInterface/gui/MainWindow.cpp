@@ -6,6 +6,7 @@
 #include "EvaluationsWidget.h"
 #include "RegisterTeamWidget.h"
 #include "AddEvaluationWidget.h"
+#include "ModifyTeamWidget.h"
 
 #include <QFrame>
 #include <QSpacerItem>
@@ -196,6 +197,7 @@ void MainWindow::setupSidebar()
         "Judges",
         "Evaluations",
         "Register Team",
+        "Modify Team",
         "Add Evaluation"
     };
     for (int i = 0; i < navItems.size(); ++i) {
@@ -278,7 +280,7 @@ void MainWindow::setupPages()
         "font-family:'Segoe UI',Arial;");
     headerLayout->addWidget(pageTitle);
     headerLayout->addStretch();
-    QStringList titles = {"Dashboard","Teams","Judges","Evaluations","Register Team","Add Evaluation"};
+    QStringList titles = {"Dashboard","Teams","Judges","Evaluations","Register Team","Modify Team","Add Evaluation"};
     for (int i = 0; i < m_navBtns.size(); ++i) {
         connect(m_navBtns[i], &QPushButton::clicked, this, [pageTitle, titles, i]{
             pageTitle->setText(titles[i]);
@@ -293,17 +295,22 @@ void MainWindow::setupPages()
     m_judges       = new JudgesWidget(this);
     m_evaluations  = new EvaluationsWidget(this);
     m_registerTeam = new RegisterTeamWidget(this);
+    m_modifyTeam   = new ModifyTeamWidget(this);
     m_addEval      = new AddEvaluationWidget(this);
     m_stack->addWidget(m_dashboard);
     m_stack->addWidget(m_teams);
     m_stack->addWidget(m_judges);
     m_stack->addWidget(m_evaluations);
     m_stack->addWidget(m_registerTeam);
+    m_stack->addWidget(m_modifyTeam);
     m_stack->addWidget(m_addEval);
     rightLayout->addWidget(m_stack, 1);
     m_mainLayout->addWidget(rightSide, 1);
 
     connect(m_registerTeam, &RegisterTeamWidget::teamRegistered, this, [this](const QString &msg){
+        m_teams->refresh(); m_dashboard->refresh(); showToast(msg, true); onNavClicked(1);
+    });
+    connect(m_modifyTeam, &ModifyTeamWidget::teamModified, this, [this](const QString &msg){
         m_teams->refresh(); m_dashboard->refresh(); showToast(msg, true); onNavClicked(1);
     });
     connect(m_addEval, &AddEvaluationWidget::evalAdded, this, [this](const QString &msg){
@@ -334,7 +341,7 @@ void MainWindow::showStartupLogin() {
 }
 
 void MainWindow::onNavClicked(int index) {
-    if (index == 5 && !m_isLoggedIn) { showToast("Admin login required", false); onLoginClicked(); return; }
+    if (index == 6 && !m_isLoggedIn) { showToast("Admin login required", false); onLoginClicked(); return; }
     m_stack->setCurrentIndex(index);
     m_currentPage = index;
     updateNavStyles(index);
@@ -342,7 +349,8 @@ void MainWindow::onNavClicked(int index) {
     else if (index == 1) m_teams->refresh();
     else if (index == 2) m_judges->refresh();
     else if (index == 3) m_evaluations->refresh();
-    else if (index == 5) m_addEval->refresh();
+    else if (index == 5) m_modifyTeam->refresh();
+    else if (index == 6) m_addEval->refresh();
 }
 
 void MainWindow::onLoginClicked() {
@@ -355,7 +363,7 @@ void MainWindow::setLoggedIn(bool state) {
     m_isLoggedIn = state;
     m_loginBtn->setVisible(!state);
     m_userWidget->setVisible(state);
-    m_navBtns[5]->setText(state ? "Add Evaluation"
+    m_navBtns[6]->setText(state ? "Add Evaluation"
                                 : "Add Evaluation (locked)");
     m_addEval->setAdminMode(state);
 }
@@ -371,8 +379,8 @@ void MainWindow::updateNavStyles(int active) {
 void MainWindow::showToast(const QString &msg, bool success) {
     m_toast->setText(msg);
     m_toast->setStyleSheet(success
-        ? "background:rgba(16,185,129,0.92);color:white;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:bold;"
-        : "background:rgba(239,68,68,0.92);color:white;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:bold;");
+                               ? "background:rgba(16,185,129,0.92);color:white;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:bold;"
+                               : "background:rgba(239,68,68,0.92);color:white;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:bold;");
     m_toast->adjustSize();
     m_toast->move((width()-m_toast->width())/2, height()-m_toast->height()-30);
     m_toast->show();

@@ -178,7 +178,17 @@ void DashboardWidget::refresh()
     m_statValues[3]->setText(maxScore > 0 ? QString::number(maxScore, 'f', 1) : "N/A");
 
     // ── Top Teams ─────────────────────────────────────────────────────────
-    qDeleteAll(m_topTeamsContent->children());
+    // Properly clear old layout and all its children
+    if (QLayout *oldLayout = m_topTeamsContent->layout()) {
+        QLayoutItem *item;
+        while ((item = oldLayout->takeAt(0)) != nullptr) {
+            if (item->widget()) {
+                item->widget()->deleteLater();
+            }
+            delete item;
+        }
+        delete oldLayout;
+    }
     QVBoxLayout *tl = new QVBoxLayout(m_topTeamsContent);
     tl->setContentsMargins(0, 0, 0, 0);
     tl->setSpacing(0);
@@ -253,7 +263,16 @@ void DashboardWidget::refresh()
     tl->addStretch();
 
     // ── Recent Evaluations ────────────────────────────────────────────────
-    qDeleteAll(m_recentEvalsContent->children());
+    if (QLayout *oldLayout = m_recentEvalsContent->layout()) {
+        QLayoutItem *item;
+        while ((item = oldLayout->takeAt(0)) != nullptr) {
+            if (item->widget()) {
+                item->widget()->deleteLater();
+            }
+            delete item;
+        }
+        delete oldLayout;
+    }
     QVBoxLayout *el = new QVBoxLayout(m_recentEvalsContent);
     el->setContentsMargins(0, 0, 0, 0);
     el->setSpacing(0);

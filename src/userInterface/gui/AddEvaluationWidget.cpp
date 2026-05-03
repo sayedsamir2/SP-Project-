@@ -275,13 +275,21 @@ void AddEvaluationWidget::onSubmit()
         m_errorLabel->setText("Please select a team and a judge");
         return;
     }
+    // Check if this judge already evaluated this team
+    for (int i = 0; i < getNumberOfEvaluations(); ++i) {
+        const Evaluation &ev = getEvalAt(i);
+        if (ev.team_id_ == teamId.toStdString() && ev.judge_id_ == judgeId.toStdString()) {
+            m_errorLabel->setText("This judge already evaluated this team!");
+            return;
+        }
+    }
     AddEvaluation(
         teamId.toStdString(),
         judgeId.toStdString(),
         static_cast<unsigned short>(m_innovSlider->value()),
         static_cast<unsigned short>(m_techSlider->value()),
         static_cast<unsigned short>(m_presSlider->value())
-    );
+        );
     m_innovSlider->setValue(5);
     m_techSlider->setValue(5);
     m_presSlider->setValue(5);

@@ -5,7 +5,7 @@ TEMPLATE = app
 TARGET   = spProject-unstableRelease
 
 INCLUDEPATH += /usr/local/include
-INCLUDEPATH += C:/Users/Lenovo/Downloads/libbcrypt-master/libbcrypt-master/include
+INCLUDEPATH += C:\Users\ateee\Desktop\SP-Project-\libbcrypt-master\include
 
 SOURCES += \
     libbcrypt-master/src/bcrypt.c \
@@ -28,6 +28,7 @@ SOURCES += \
     src/userInterface/gui/JudgesWidget.cpp \
     src/userInterface/gui/LoginDialog.cpp \
     src/userInterface/gui/MainWindow.cpp \
+    src/userInterface/gui/ModifyTeamWidget.cpp \
     src/userInterface/gui/RegisterTeamWidget.cpp \
     src/userInterface/gui/TeamsWidget.cpp \
     src/userInterface/gui/main.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     src/userInterface/gui/JudgesWidget.h \
     src/userInterface/gui/LoginDialog.h \
     src/userInterface/gui/MainWindow.h \
+    src/userInterface/gui/ModifyTeamWidget.h \
     src/userInterface/gui/RegisterTeamWidget.h \
     src/userInterface/gui/TeamsWidget.h \
     src/utils/conversionUtils.hpp \
