@@ -24,6 +24,7 @@ Response getTeamById(const string& id)
             response.content_ptr_ = &getTeamAt(i);
             response.content_type_ = ProgramTypes::TEAM;
             response.status_ = Status::STATUS_200_OK;
+            return response;
         }
         else{
             response.content_ptr_ = nullptr;

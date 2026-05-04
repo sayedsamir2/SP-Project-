@@ -10,3 +10,9 @@ eval_Ls4iQG|team_CpPfZ3|judge_5SSNA5|9|12|6|27|
 eval_wfBnfj|team_CpPfZ3|judge_Ah3VCH|12|6|11|29|
 eval_jNZRMm|team_BcXOPE|judge_5SSNA5|10|10|10|30|
 eval_bKoAio|team_WWDZWm|judge_KrTkT0|3|2|5|10|
+eval_H2Xr09|team_BcXOPE|judge_Ah3VCH|10|10|10|30|
+eval_05gkB7|team_BcXOPE|judge_3nbx2t|10|10|10|30|
+eval_UYXbeE|team_C7a7jC|judge_Ah3VCH|10|10|10|30|
+eval_xKXOMy|team_C7a7jC|judge_ZamMRX|10|10|10|30|
+eval_6iY8JU|team_C7a7jC|judge_KrTkT0|10|10|9|29|
+eval_9Nbicz|team_C7a7jC|judge_5SSNA5|0|0|0|0|

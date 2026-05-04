@@ -5,7 +5,7 @@ TEMPLATE = app
 TARGET   = spProject-unstableRelease
 
 INCLUDEPATH += /usr/local/include
-INCLUDEPATH += C:\Users\ateee\Desktop\SP-Project-\libbcrypt-master\include
+INCLUDEPATH += C:\Users\Lenovo\OneDrive\Desktop\54544778885544\SP-Project-\libbcrypt-master\include
 
 SOURCES += \
     libbcrypt-master/src/bcrypt.c \

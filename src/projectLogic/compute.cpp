@@ -18,7 +18,7 @@ float calculateFinalScore(const string& team_id)
         }
     }
 
-    
+
 
     if (count > 0)
     {
